@@ -1,4 +1,3 @@
-import logger
 import config
 import update_from_github
 

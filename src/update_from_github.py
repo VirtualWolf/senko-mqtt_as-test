@@ -58,6 +58,8 @@ class UpdateFromGitHub:
         for file in json:
             self._process_item(file)
 
+        os.chdir('..')
+
     def _process_item(self, file):
         if file['type'] is 'file':
             self._get_file(file['download_url'], file['name'])
