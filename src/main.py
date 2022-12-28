@@ -1,11 +1,11 @@
-import senko
 import logger
+import config
+import update_from_github
 
-OTA = senko.Senko(
-  user="virtualwolf", repo="senko-mqtt_as-test", files = ["mqtt_as.py"]
+c = config.read_configuration()
+
+OTA = update_from_github.UpdateFromGitHub(
+  username="VirtualWolf", repository="senko-mqtt_as-test", working_dir="src"
 )
 
-if OTA.update():
-    logger.log("Got new updates")
-else:
-    logger.log("No new updates")
+OTA.update()
